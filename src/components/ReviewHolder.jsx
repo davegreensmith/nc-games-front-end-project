@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import * as api from '../utils/api';
 
 import ReviewCard from './ReviewCard';
 
-export default function ReviewHolder() {
+export default function ReviewHolder({ selectedCategory }) {
   const [reviews, setReviews] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { search } = useLocation();
 
   useEffect(() => {
-    api.fetchReviews().then((reviewsArr) => {
-      setReviews(reviewsArr);
-    });
-  }, []);
+    if (search) {
+      api.fetchReviewsByCategory(search).then((response) => {
+        setReviews(response);
+      });
+    } else {
+      api.fetchReviews().then((reviewsArr) => {
+        setReviews(reviewsArr);
+      });
+    }
+  }, [search]);
 
   return (
     <ul>

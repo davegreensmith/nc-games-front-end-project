@@ -83,3 +83,20 @@ header {
   text-align: center;
   width: 70%;
 }
+
+.category-link {
+  color: #001524;
+  padding: 0.25rem;
+}
+
+#navigation-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0.25rem;
+  background-color: #FF7D00;
+}
+
+#navigation-category p {
+  width: 100%;
+}

@@ -1,14 +1,15 @@
-import * as api from '../utils/api';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import ReviewNav from './ReviewNav';
 import ReviewHolder from './ReviewHolder';
 
 export default function Reviews() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   return (
     <section>
-      <ReviewNav />
-      <ReviewHolder />
+      <ReviewNav setSelectedCategory={setSelectedCategory} />
+      <ReviewHolder selectedCategory={selectedCategory} />
     </section>
   );
 }
