@@ -34,11 +34,13 @@ export default function ReviewHolder({ setCurrentReview }) {
     return <Errors error={error} />;
   } else {
     return (
-      <ul>
-        {reviews.map((review) => {
-          return <ReviewCard key={review.review_id} review={review} />;
-        })}
-      </ul>
+      <div className="review-holder">
+        <ul>
+          {reviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review} />;
+          })}
+        </ul>
+      </div>
     );
   }
 }
