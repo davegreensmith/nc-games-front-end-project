@@ -16,7 +16,7 @@ export default function ReviewCard({ review }) {
         <Link className="review-card-link" to={`/review/${review_id}`}>
           View
         </Link>
-        <Link className="review-card-link" to={`/review/${review_id}`}>
+        <Link className="review-card-link" to={`/review/reviews/${review_id}/comments`}>
           Comments ({comment_count})
         </Link>
         <p>Votes: {votes}</p>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import ReviewNav from './ReviewNav';
 import ReviewHolder from './ReviewHolder';
@@ -9,8 +9,6 @@ export default function Reviews() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const { review_id } = useParams();
-
-  console.log(review_id, '<<< review_id');
 
   return (
     <section>
