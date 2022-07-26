@@ -6,6 +6,7 @@ export default function ReviewCard({ review }) {
       <img src={review_img_url}></img>
       <div id="review-card-preview">
         <h4>{title}</h4>
+        <p>Category: {category}</p>
         <p>Designed by: {designer}</p>
       </div>
       <div id="review-card-buttons">
