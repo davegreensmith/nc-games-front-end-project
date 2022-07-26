@@ -14,20 +14,34 @@
 }
 
 header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   background-color: #001524;
   color: #FF7D00;
   padding: 1rem;
 }
 
+header img {
+  max-width: 100px;
+}
+
 #home-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #FF7D00;
   color: #001524;
   border: solid #001524;
   border-radius: 1rem;
   padding: 2rem;
-  width: 50%;
+  width: 75%;
   margin: 1rem auto 1rem;
   text-align: center;
+}
+
+#home-screen img {
+  max-width: 120%;
 }
 
 .navigation-menu {
@@ -53,7 +67,7 @@ header {
 
 .review-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 1rem;
   background-color: #78290F;
@@ -61,18 +75,24 @@ header {
   color:#FF7D00;
 }
 
+.review-card:nth-child(review-card-buttons) {
+  justify-self: flex-end;
+}
+
 .review-card img {
   max-width: 100px;
   max-height: 100px;
   border-radius: 50%;
+  border: solid #FF7D00;
   }
 
-#review-card-buttons {
+.review-card-buttons {
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 #review-card-preview {
@@ -89,7 +109,7 @@ header {
   padding: 0.25rem;
 }
 
-#navigation-category {
+.navigation-sub {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -97,6 +117,90 @@ header {
   background-color: #FF7D00;
 }
 
-#navigation-category p {
+.navigation-sub p {
+  width: 100%;
+}
+
+.full-review {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #78290F;
+  color: #FF7D00;
+  margin: 0.5rem;
+}
+
+.full-review img {
+  max-width: 80%;
+  padding: 0.5rem;
+  margin: auto;
+}
+
+.full-review p {
+  margin: 0.25rem;
+}
+
+.full-review h2 {
+  text-align: center;
+}
+
+.review-card-link {
+  color:#78290F;
+  padding: 0.25rem;
+  margin: 0.1rem;
+  background-color: #FFECD1;
+  text-align: center;
+}
+
+.review-card-link:visited {
+  color:#78290F;
+  background-color: #FFECD1;
+}
+
+.review-card-link:hover {
+  background-color: #001524;
+  color: #FF7D00;
+  transition: 0.5s;
+}
+
+.navigation-sub-buttons {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.navigation-review-full {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.25rem;
+  background-color: #FF7D00;
+}
+
+.navigation-review-full button {
+  padding: 0.25rem;
+}
+
+#error-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  border: solid #FF7D00 6px;
+  width: 80%;
+  background-color: #001524;
+  color: #FFECD1;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+#error-page img {
   width: 100%;
 }

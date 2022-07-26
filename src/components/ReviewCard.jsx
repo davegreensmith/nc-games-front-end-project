@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+import * as api from '../utils/api';
+
 export default function ReviewCard({ review }) {
-  const { category, comment_count, created_at, designer, owner, review_body, review_img_url, title, votes } = review;
+  const { category, comment_count, created_at, designer, owner, review_body, review_img_url, title, votes, review_id } = review;
 
   return (
     <article className="review-card">
@@ -7,11 +10,15 @@ export default function ReviewCard({ review }) {
       <div id="review-card-preview">
         <h4>{title}</h4>
         <p>Category: {category}</p>
-        <p>Designed by: {designer}</p>
+        <p>Designer: {designer}</p>
       </div>
-      <div id="review-card-buttons">
-        <button>Review</button>
-        <button>Comments</button>
+      <div className="review-card-buttons">
+        <Link className="review-card-link" to={`/review/${review_id}`}>
+          View
+        </Link>
+        <Link className="review-card-link" to={`/review/reviews/${review_id}/comments`}>
+          Comments ({comment_count})
+        </Link>
         <p>Votes: {votes}</p>
       </div>
     </article>
