@@ -18,7 +18,7 @@ export default function ReviewNav({ setSelectedCategory }) {
       {isLoadingCats ? (
         <p>loading...</p>
       ) : (
-        <div id="navigation-category">
+        <div className="navigation-sub">
           <p>Filter by Category</p>
           {categories.map((category, index) => {
             return (

@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom';
 import * as api from '../utils/api';
 
 import ReviewCard from './ReviewCard';
+import ReviewFull from './ReviewFull';
 
-export default function ReviewHolder({ selectedCategory }) {
+export default function ReviewHolder({ setCurrentReview }) {
   const [reviews, setReviews] = useState([]);
   const { search } = useLocation();
 
