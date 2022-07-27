@@ -11,7 +11,7 @@ export default function Reviews() {
   const { review_id } = useParams();
 
   return (
-    <section>
+    <section className="reviews-container">
       {review_id ? (
         <>
           <ReviewFull />
