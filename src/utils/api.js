@@ -34,3 +34,9 @@ export const updateVotesByReviewId = (review_id, inc_votes) => {
     return data;
   });
 };
+
+export const fetchCommentsByReviewId = (review_id) => {
+  return usersApi.get(`/reviews/${review_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};

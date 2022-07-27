@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Reviews from './components/Reviews';
 import Users from './components/Users';
 import AboutMe from './components/AboutMe';
+import CommentHolder from './components/CommentHolder';
 
 function App() {
   const [error, setError] = useState(null);
@@ -25,7 +26,7 @@ function App() {
               <Route path="/" element={<Home />}></Route>
               <Route path="/reviews" element={<Reviews />}></Route>
               <Route path="/review/:review_id" element={<Reviews />}></Route>
-              <Route path="/review/reviews/:review_id/comments" element={<Reviews />}></Route>
+              <Route path="/review/reviews/:review_id/comments" element={<CommentHolder />}></Route>
               <Route path="/users" element={<Users />}></Route>
               <Route path="/AboutMe" element={<AboutMe />}></Route>
             </Routes>
