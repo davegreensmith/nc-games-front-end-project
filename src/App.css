@@ -222,7 +222,7 @@ header img {
   width: 100%;
 }
 
-/* @media (min-width: 600px) {
+@media (min-width: 600px) {
  .App {
     display: grid;
     grid-template-areas: 
@@ -243,8 +243,11 @@ header img {
     grid-area: nav;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 0.25rem;
-    height: 15rem;
+    height: 10rem;
+    width: 80%;
+    margin: 1rem;
   }
 
   .navigation-link {
@@ -262,13 +265,15 @@ header img {
 
   .navigation-sub {
     grid-area: main;
-    width: 100%;
+    /* width: 100%; */
   }
 
-  .reviews-container {
+  .main-grid {
     grid-area: main;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 100%
+    
+    /* width: 100% */
   }
-} */
+}

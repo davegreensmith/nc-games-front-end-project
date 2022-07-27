@@ -20,14 +20,16 @@ function App() {
         <div className="App">
           <Header />
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/reviews" element={<Reviews />}></Route>
-            <Route path="/review/:review_id" element={<Reviews />}></Route>
-            <Route path="/review/reviews/:review_id/comments" element={<Reviews />}></Route>
-            <Route path="/users" element={<Users />}></Route>
-            <Route path="/AboutMe" element={<AboutMe />}></Route>
-          </Routes>
+          <div className="main-grid">
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/reviews" element={<Reviews />}></Route>
+              <Route path="/review/:review_id" element={<Reviews />}></Route>
+              <Route path="/review/reviews/:review_id/comments" element={<Reviews />}></Route>
+              <Route path="/users" element={<Users />}></Route>
+              <Route path="/AboutMe" element={<AboutMe />}></Route>
+            </Routes>
+          </div>
         </div>
       </BrowserRouter>
     </ErrorContext.Provider>
