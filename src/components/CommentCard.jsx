@@ -10,6 +10,3 @@ export default function CommentCard({ comment: { author, body, comment_id, creat
     </article>
   );
 }
-
-{
-}
