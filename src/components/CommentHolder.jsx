@@ -5,19 +5,24 @@ import { ErrorContext } from '../utils/contexts';
 import * as api from '../utils/api';
 import Errors from './Errors';
 
+import useGetReview from '../hooks/useGetReview';
+import CommentCard from './CommentCard';
+import ReviewCard from './ReviewCard';
+
 export default function CommentHolder() {
   const { review_id } = useParams();
   const { error, setError } = useContext(ErrorContext);
 
   const [allComments, setAllComments] = useState(null);
   const [isLoadingComments, setIsLoadingComments] = useState(true);
+  const { currentReview } = useGetReview(review_id);
 
   useEffect(() => {
     setError(null);
     api
       .fetchCommentsByReviewId(review_id)
       .then((response) => {
-        setAllComments(response);
+        setAllComments(response, '<<<comments');
         setIsLoadingComments(false);
       })
       .catch(({ response: { status, statusText } }) => {
@@ -34,7 +39,14 @@ export default function CommentHolder() {
           <p>Loading...</p>
         ) : (
           <>
-            <h2>Comment Holder</h2>
+            <h3>Review:</h3>
+            <ReviewCard review={currentReview} />
+            <h4>Comments: ({allComments.length})</h4>
+            <ul>
+              {allComments.map((comment) => {
+                return <CommentCard key={comment.comment_id} comment={comment} />;
+              })}
+            </ul>
           </>
         )}
       </section>

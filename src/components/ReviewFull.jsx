@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ErrorContext } from '../utils/contexts';
 
 import * as api from '../utils/api';
+import { formatDate } from '../utils/functions';
 import Errors from './Errors';
 import ReviewOptions from './ReviewOptions';
 import useGetReview from '../hooks/useGetReview';
@@ -26,10 +27,10 @@ export default function ReviewFull() {
       });
   };
 
-  const formatDate = (created_at) => {
-    const d = new Date(created_at);
-    return d.toLocaleDateString('en-GB');
-  };
+  // const formatDate = (created_at) => {
+  //   const d = new Date(created_at);
+  //   return d.toLocaleDateString('en-GB');
+  // };
 
   if (error) {
     return <Errors error={error} />;

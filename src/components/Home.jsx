@@ -5,7 +5,7 @@ export default function Home() {
     <div className="home-screen">
       <h2>Welcome to</h2>
       <img src={homeLogo}></img>
-      <p>Make your selections from the menu above!</p>
+      <p>Make your selections from the menu</p>
     </div>
   );
 }

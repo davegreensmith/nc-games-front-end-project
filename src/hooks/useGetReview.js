@@ -12,11 +12,12 @@ const useGetReview = (review_id) => {
     setError(null);
     api
       .fetchReviewById(review_id)
-      .then((review) => {
-        setCurrentReview(review);
+      .then((response) => {
+        setCurrentReview(response);
         setIsLoadingReview(false);
       })
       .catch(({ response: { status, statusText } }) => {
+        console.log(status, statusText, '<<<< status, msg');
         setError({ statusCode: status, msg: statusText });
       });
   }, []);
