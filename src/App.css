@@ -4,6 +4,10 @@
   font-family: 'Chakra Petch', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   background-color: #ffecd1;
 }
@@ -236,6 +240,52 @@ header img {
 
 .comment-card p {
   padding: 0.25rem;
+}
+
+.comment-sub-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.comment-sub-header button {
+  padding: 0.1rem;
+}
+
+.comment-sub-header button,
+h4 {
+  margin: 0.5rem;
+}
+
+.comment-form {
+  font-family: 'Chakra Petch', sans-serif;
+  padding: 1rem;
+}
+
+.comment-form button {
+  width: 4rem;
+  padding: 0.1rem;
+  margin: 1rem;
+}
+
+.comment-form textarea {
+  margin: 0.5rem;
+  width: 90%;
+  height: 10rem;
+  color: #15616d;
+  resize: none;
+}
+
+.comment-form legend {
+  color: #001524;
+}
+
+#char-count {
+  color: #15616d;
+}
+
+#add-comment {
+  color: #78290f;
+  padding: 1.9rem;
 }
 
 @media (min-width: 600px) {

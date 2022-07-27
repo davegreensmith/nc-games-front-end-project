@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { ErrorContext } from '../utils/contexts';
 
@@ -8,6 +8,7 @@ import Errors from './Errors';
 import useGetReview from '../hooks/useGetReview';
 import CommentCard from './CommentCard';
 import ReviewCard from './ReviewCard';
+import CommentPost from './CommentPost';
 
 export default function CommentHolder() {
   const { review_id } = useParams();
@@ -16,6 +17,10 @@ export default function CommentHolder() {
   const [allComments, setAllComments] = useState(null);
   const [isLoadingComments, setIsLoadingComments] = useState(true);
   const { currentReview } = useGetReview(review_id);
+
+  const commentForm = useRef(null);
+
+  const executeScroll = () => commentForm.current.scrollIntoView();
 
   useEffect(() => {
     setError(null);
@@ -41,12 +46,18 @@ export default function CommentHolder() {
           <>
             <h3>Review:</h3>
             <ReviewCard review={currentReview} />
-            <h4>Comments: ({allComments.length})</h4>
+            <section className="comment-sub-header">
+              <h4>Comments: ({allComments.length})</h4>
+              <button onClick={executeScroll}>Go to comment form</button>
+            </section>
             <ul>
               {allComments.map((comment) => {
                 return <CommentCard key={comment.comment_id} comment={comment} />;
               })}
             </ul>
+            <section ref={commentForm} className="comment-form">
+              <CommentPost />
+            </section>
           </>
         )}
       </section>
