@@ -5,12 +5,12 @@
 }
 
 #root {
-  background-color: #FFECD1;
+  background-color: #ffecd1;
 }
 
 .App {
   text-align: center;
-  background-color: #FFECD1;
+  background-color: #ffecd1;
 }
 
 header {
@@ -18,7 +18,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   background-color: #001524;
-  color: #FF7D00;
+  color: #ff7d00;
   padding: 1rem;
 }
 
@@ -30,7 +30,7 @@ header img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FF7D00;
+  background-color: #ff7d00;
   color: #001524;
   border: solid #001524;
   border-radius: 1rem;
@@ -47,19 +47,19 @@ header img {
 .navigation-menu {
   display: flex;
   justify-content: space-around;
-  background-color: #15616D;
-  color: #FFECD1;
+  background-color: #15616d;
+  color: #ffecd1;
   padding: 0.5rem;
   height: 2rem;
 }
 
 .navigation-link {
-  color: #FFECD1;
+  color: #ffecd1;
 }
 
 .navigation-link:hover {
-  background-color: #78290F;
-  color: #FF7D00;
+  background-color: #78290f;
+  color: #ff7d00;
   transition: all 0.5s;
   padding: 0.25rem;
   border-radius: 0.25rem;
@@ -70,9 +70,9 @@ header img {
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 1rem;
-  background-color: #78290F;
+  background-color: #78290f;
   margin: 0.5rem;
-  color:#FF7D00;
+  color: #ff7d00;
 }
 
 .review-card:nth-child(review-card-buttons) {
@@ -83,8 +83,8 @@ header img {
   max-width: 100px;
   max-height: 100px;
   border-radius: 50%;
-  border: solid #FF7D00;
-  }
+  border: solid #ff7d00;
+}
 
 .review-card-buttons {
   padding: 0.5rem;
@@ -118,7 +118,7 @@ header img {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 0.25rem;
-  background-color: #FF7D00;
+  background-color: #ff7d00;
 }
 
 .navigation-sub p {
@@ -131,8 +131,8 @@ header img {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #78290F;
-  color: #FF7D00;
+  background-color: #78290f;
+  color: #ff7d00;
   margin: 0.5rem;
 }
 
@@ -151,21 +151,21 @@ header img {
 }
 
 .review-card-link {
-  color:#78290F;
+  color: #78290f;
   padding: 0.25rem;
   margin: 0.1rem;
-  background-color: #FFECD1;
+  background-color: #ffecd1;
   text-align: center;
 }
 
 .review-card-link:visited {
-  color:#78290F;
-  background-color: #FFECD1;
+  color: #78290f;
+  background-color: #ffecd1;
 }
 
 .review-card-link:hover {
   background-color: #001524;
-  color: #FF7D00;
+  color: #ff7d00;
   transition: 0.5s;
 }
 
@@ -184,7 +184,7 @@ header img {
   justify-content: space-around;
   align-items: center;
   padding: 0.25rem;
-  background-color: #FF7D00;
+  background-color: #ff7d00;
 }
 
 .navigation-review-full button {
@@ -209,10 +209,10 @@ header img {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  border: solid #FF7D00 6px;
+  border: solid #ff7d00 6px;
   width: 80%;
   background-color: #001524;
-  color: #FFECD1;
+  color: #ffecd1;
   text-align: center;
   margin: 2rem auto;
   padding: 2rem;
@@ -222,10 +222,26 @@ header img {
   width: 100%;
 }
 
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: #15616d;
+  margin: 0.5rem;
+  color: #ffecd1;
+}
+
+.comment-card p {
+  padding: 0.25rem;
+}
+
 @media (min-width: 600px) {
- .App {
+  .App {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       '. header header .'
       '. nav main .';
     grid-template-columns: 10% 25% auto 10%;
@@ -236,7 +252,6 @@ header img {
     display: flex;
     justify-content: space-evenly;
     grid-area: header;
-
   }
 
   .navigation-menu {
@@ -265,7 +280,6 @@ header img {
 
   .navigation-sub {
     grid-area: main;
-    /* width: 100%; */
   }
 
   .main-grid {
@@ -273,7 +287,5 @@ header img {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    
-    /* width: 100% */
   }
 }

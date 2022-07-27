@@ -3,15 +3,15 @@ import { useParams, Link } from 'react-router-dom';
 import { ErrorContext } from '../utils/contexts';
 
 import * as api from '../utils/api';
+import { formatDate } from '../utils/functions';
 import Errors from './Errors';
 import ReviewOptions from './ReviewOptions';
+import useGetReview from '../hooks/useGetReview';
 
 export default function ReviewFull() {
   const { review_id } = useParams();
+  const { currentReview, setCurrentReview, isLoadingReview } = useGetReview(review_id);
   const { error, setError } = useContext(ErrorContext);
-
-  const [currentReview, setCurrentReview] = useState(null);
-  const [isLoadingReview, setIsLoadingReview] = useState(true);
 
   const handleAddVote = (voteIncrement) => {
     setError(null);
@@ -27,23 +27,10 @@ export default function ReviewFull() {
       });
   };
 
-  const formatDate = (created_at) => {
-    const d = new Date(created_at);
-    return d.toLocaleDateString('en-GB');
-  };
-
-  useEffect(() => {
-    setError(null);
-    api
-      .fetchReviewById(review_id)
-      .then((review) => {
-        setCurrentReview(review);
-        setIsLoadingReview(false);
-      })
-      .catch(({ response: { status, statusText } }) => {
-        setError({ statusCode: status, msg: statusText });
-      });
-  }, []);
+  // const formatDate = (created_at) => {
+  //   const d = new Date(created_at);
+  //   return d.toLocaleDateString('en-GB');
+  // };
 
   if (error) {
     return <Errors error={error} />;
