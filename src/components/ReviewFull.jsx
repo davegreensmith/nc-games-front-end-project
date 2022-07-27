@@ -27,6 +27,11 @@ export default function ReviewFull() {
       });
   };
 
+  const formatDate = (created_at) => {
+    const d = new Date(created_at);
+    return d.toLocaleDateString('en-GB');
+  };
+
   useEffect(() => {
     setError(null);
     api
@@ -54,10 +59,11 @@ export default function ReviewFull() {
             <div className="full-review">
               <h2>{currentReview.title}</h2>
               <img src={currentReview.review_img_url} alt="game example" />
-              <p>Review: {currentReview.review_body}</p>
+              <p>{currentReview.review_body}</p>
               <p>Category: {currentReview.category}</p>
               <p>Designer: {currentReview.designer}</p>
               <p>Owner: {currentReview.owner}</p>
+              <p>Date of Review: {formatDate(currentReview.created_at)}</p>
             </div>
           </>
         )}
