@@ -26,7 +26,6 @@ export default function ReviewHolder({ setCurrentReview }) {
     } else {
       api.fetchReviews().then((reviewsArr) => {
         setReviews(reviewsArr);
-        console.log(reviews);
       });
     }
   }, [search]);

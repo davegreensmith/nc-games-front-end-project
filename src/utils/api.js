@@ -18,7 +18,6 @@ export const fetchCategories = () => {
 
 export const fetchReviewsByCategory = (search) => {
   return usersApi.get(`/reviews/${search}`).then(({ data }) => {
-    console.log(search);
     return data.reviews;
   });
 };

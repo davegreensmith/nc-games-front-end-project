@@ -11,7 +11,6 @@ export default function ReviewNav({ setSelectedCategory }) {
   let addToSearch = '?';
   if (/^\?category\b/i.test(search)) {
     addToSearch = search.match(/^[^&]*/) + '&';
-    console.log(addToSearch, addToSearch);
   }
 
   useEffect(() => {
