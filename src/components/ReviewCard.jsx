@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as api from '../utils/api';
+import { formatDate } from '../utils/functions';
 
 export default function ReviewCard({ review }) {
   if (!review) {
@@ -12,6 +13,7 @@ export default function ReviewCard({ review }) {
         <img src={review_img_url}></img>
         <div id="review-card-preview">
           <h4>{title}</h4>
+          <p>Date of Review: {formatDate(created_at)}</p>
           <p>Category: {category}</p>
           <p>Designer: {designer}</p>
         </div>
