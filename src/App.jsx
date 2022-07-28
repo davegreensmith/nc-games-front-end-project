@@ -11,6 +11,7 @@ import Reviews from './components/Reviews';
 import Users from './components/Users';
 import MyAccount from './components/MyAccount';
 import CommentHolder from './components/CommentHolder';
+import GotLost from './components/GotLost';
 
 function App() {
   const [error, setError] = useState(null);
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/review/reviews/:review_id/comments" element={<CommentHolder />}></Route>
                 <Route path="/users" element={<Users />}></Route>
                 <Route path="/my_account" element={<MyAccount />}></Route>
+                <Route path="*" element={<GotLost />}></Route>
               </Routes>
             </div>
           </div>
