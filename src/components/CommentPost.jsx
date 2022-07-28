@@ -1,57 +1,65 @@
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { CurrentUserContext } from '../utils/contexts';
+import * as api from '../utils/api';
+import Errors from './Errors';
+
+import useGetCommentsByReviewId from '../hooks/useGetCommentsByReviewId';
+import CommentForm from './CommentForm';
+import CommentPostSuccess from './CommentPostSuccess';
+import CommentPostPending from './CommentPostPending';
 
 export default function CommentPost() {
   const [newComment, setNewComment] = useState('up to 888 characters');
   const [isCommentValid, setIsCommentValid] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ idle: true, sending: false, success: false });
+  const { currentUser } = useContext(CurrentUserContext);
+  const { username } = currentUser;
+  const { review_id } = useParams();
+
+  const { setIsLoadingComments, error, setError } = useGetCommentsByReviewId(review_id);
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
 
-    console.log(newComment, '<<< submitted comment');
+    setSubmitStatus({ idle: false, sending: true, success: false });
+
+    const body = {
+      username,
+      body: newComment,
+    };
+
+    api
+      .postReview(review_id, body)
+      .then((response) => {
+        if (response.status === 201) {
+          setSubmitStatus({ idle: false, sending: false, success: true });
+        }
+      })
+      .catch(({ response: { status, statusText } }) => {
+        setError({ statusCode: status, msg: statusText });
+      });
   };
 
   useEffect(() => {
     newComment === '' || newComment === 'up to 888 characters' ? setIsCommentValid(false) : setIsCommentValid(true);
   }, [newComment]);
 
-  let addToClass = '';
-  isCommentValid ? (addToClass = 'goodComment') : (addToClass = 'badComment');
-
-  return (
-    <form onSubmit={handleCommentSubmit}>
-      <fieldset>
-        {/* <label for="comment">Leave your comment: </label> */}
-        <textarea
-          className={`${addToClass}`}
-          type="text"
-          name="comment"
-          maxLength="888"
-          value={newComment}
-          onChange={(e) => {
-            setNewComment(e.target.value);
-            console.log(newComment);
-          }}
-        ></textarea>
-        {isCommentValid ? (
-          <>
-            <p id="char-count">Comment count = {newComment.length} chars</p>
-            <div className="comment-form-buttons">
-              <button>Submit</button>
-              <button
-                type="button"
-                onClick={() => {
-                  setNewComment('up to 888 characters');
-                }}
-              >
-                Clear
-              </button>
-            </div>
-          </>
-        ) : (
-          <p id="add-comment">Please add your comment above</p>
-        )}
-        <legend>Add your own comment</legend>
-      </fieldset>
-    </form>
-  );
+  if (error) {
+    return <Errors error={error} />;
+  } else {
+    if (submitStatus.success === true) {
+      return <CommentPostSuccess />;
+    } else if (submitStatus.sending === true) {
+      return <CommentPostPending />;
+    } else {
+      return (
+        <section>
+          <CommentForm handleCommentSubmit={handleCommentSubmit} newComment={newComment} setNewComment={setNewComment} isCommentValid={isCommentValid} />
+        </section>
+      );
+    }
+  }
 }
