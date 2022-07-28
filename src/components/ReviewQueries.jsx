@@ -5,13 +5,35 @@ import * as api from '../utils/api';
 export default function ReviewNav({ setSelectedCategory }) {
   const [categories, setCategories] = useState();
   const [isLoadingCats, setIsLoadingCats] = useState(true);
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortOrder, setSortOrder] = useState('desc');
 
   const { search } = useLocation();
   let addToSearch = '?';
   if (/^\?category\b/i.test(search)) {
     addToSearch = search.match(/^[^&]*/) + '&';
   }
+
+  const handleToggleOrder = (order) => {
+    let newSearchStr = search;
+    let oppOrder = '';
+    if (order === 'asc') oppOrder = 'desc';
+    if (order === 'desc') oppOrder = 'asc';
+
+    if (search.endsWith(order)) {
+      return newSearchStr;
+    }
+
+    if (search.endsWith(oppOrder)) {
+      const re = new RegExp(oppOrder);
+      newSearchStr = newSearchStr.replace(re, order);
+      return newSearchStr;
+    }
+
+    if (search === '') {
+      newSearchStr = `?order=${order}`;
+      return newSearchStr;
+    }
+  };
 
   useEffect(() => {
     api.fetchCategories().then((response) => {
@@ -39,32 +61,10 @@ export default function ReviewNav({ setSelectedCategory }) {
                   Votes
                 </Link>
               </div>
-              <div className="query-order-radio">
+              <div className="query-order">
                 <p>order</p>
-                <div className="query-order">
-                  <label htmlFor="asc">⬆️</label>
-                  <input
-                    type="radio"
-                    id="asc"
-                    name="order"
-                    onClick={() => {
-                      setSortOrder('asc');
-                    }}
-                  />
-                </div>
-
-                <div className="query-order">
-                  <label htmlFor="desc">⬇️</label>
-                  <input
-                    type="radio"
-                    id="desc"
-                    name="order"
-                    onClick={() => {
-                      setSortOrder('desc');
-                    }}
-                    defaultChecked
-                  />
-                </div>
+                <Link to={`/reviews${handleToggleOrder('asc')}`}>⬆️</Link>
+                <Link to={`/reviews${handleToggleOrder('desc')}`}>⬇️</Link>
               </div>
               <legend>Sort by</legend>
             </fieldset>
@@ -74,7 +74,7 @@ export default function ReviewNav({ setSelectedCategory }) {
               {categories.map((category, index) => {
                 return (
                   <Link
-                    to={`/reviews?category=${category.slug}`}
+                    to={`/reviews?category=${category.slug}&order=desc`}
                     key={index}
                     className="category-link"
                     onClick={(e) => {

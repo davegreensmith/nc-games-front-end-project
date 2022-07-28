@@ -364,12 +364,12 @@ p {
   flex-direction: column;
   width: 1rem;
   margin: 1rem;
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
 }
 
 .query-order {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0;
 }
 
