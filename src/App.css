@@ -4,6 +4,10 @@
   font-family: 'Chakra Petch', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   background-color: #ffecd1;
 }
@@ -40,7 +44,7 @@ header img {
   text-align: center;
 }
 
-#home-screen img {
+.home-screen img {
   max-width: 120%;
 }
 
@@ -222,6 +226,25 @@ header img {
   width: 100%;
 }
 
+#lost-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  border: solid #ff7d00 6px;
+  width: 80%;
+  background-color: #001524;
+  color: #ffecd1;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+#lost-page img {
+  width: 100%;
+  margin: 1rem auto;
+}
+
 .comment-card {
   display: flex;
   flex-direction: column;
@@ -236,6 +259,95 @@ header img {
 
 .comment-card p {
   padding: 0.25rem;
+}
+
+.comment-sub-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.comment-sub-header button {
+  padding: 0.1rem;
+}
+
+.comment-sub-header button,
+h4 {
+  margin: 0.5rem;
+}
+
+.comment-form {
+  font-family: 'Chakra Petch', sans-serif;
+  padding: 1rem;
+}
+
+.comment-form button {
+  width: 4rem;
+  padding: 0.1rem;
+  margin: 1rem;
+}
+
+.comment-form textarea {
+  margin: 0.5rem;
+  width: 90%;
+  height: 10rem;
+  color: #15616d;
+  resize: none;
+}
+
+.comment-form legend {
+  color: #001524;
+}
+
+#char-count {
+  color: #15616d;
+}
+
+#add-comment {
+  color: #78290f;
+  padding: 1.9rem;
+}
+
+.user-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #001524;
+  color: #ff7d00;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.user-section img {
+  max-width: 60%;
+  border-radius: 2rem;
+  margin: 1rem;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  background-color: #001524;
+  color: #ff7d00;
+  padding: 1rem;
+}
+
+.comment-textarea {
+  padding: 0.25rem;
+}
+
+.user-card img,
+h3,
+p {
+  /* padding: 0.5rem; */
+}
+
+.user-card img {
+  max-height: 5rem;
+  border-radius: 2rem;
 }
 
 @media (min-width: 600px) {
@@ -259,6 +371,7 @@ header img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 0.25rem;
     height: 10rem;
     width: 80%;
@@ -287,5 +400,18 @@ header img {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    padding: 2rem;
+  }
+
+  .navigation-menu img {
+    max-height: 2rem;
+  }
+
+  .user-section img {
+    max-width: auto;
+    max-height: 70%;
+    border-radius: 2rem;
+    margin: 1rem;
+    padding: 1rem;
   }
 }

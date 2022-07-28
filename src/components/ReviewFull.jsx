@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { ErrorContext } from '../utils/contexts';
 
 import * as api from '../utils/api';
@@ -26,11 +26,6 @@ export default function ReviewFull() {
         setError({ statusCode: status, msg: statusText });
       });
   };
-
-  // const formatDate = (created_at) => {
-  //   const d = new Date(created_at);
-  //   return d.toLocaleDateString('en-GB');
-  // };
 
   if (error) {
     return <Errors error={error} />;

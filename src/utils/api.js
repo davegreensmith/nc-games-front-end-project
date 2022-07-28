@@ -40,3 +40,15 @@ export const fetchCommentsByReviewId = (review_id) => {
     return data.comments;
   });
 };
+
+export const fetchUsers = () => {
+  return usersApi.get('/users').then(({ data }) => {
+    return data.users;
+  });
+};
+
+export const postReview = (review_id, body) => {
+  return usersApi.post(`/reviews/${review_id}/comments`, body).then(({ request: { status } }) => {
+    return { status };
+  });
+};
