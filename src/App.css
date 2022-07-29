@@ -24,6 +24,9 @@ header {
   background-color: #001524;
   color: #ff7d00;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 header img {
@@ -55,6 +58,9 @@ header img {
   color: #ffecd1;
   padding: 0.5rem;
   height: 2rem;
+  position: sticky;
+  top: 8.25rem;
+  z-index: 999;
 }
 
 .navigation-link {
@@ -434,6 +440,9 @@ p {
     display: flex;
     justify-content: space-evenly;
     grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
 
   .footer {
@@ -458,6 +467,9 @@ p {
     height: 10rem;
     width: 80%;
     margin: 1rem;
+    position: sticky;
+    top: 9.25rem;
+    z-index: 999;
   }
 
   .navigation-link {
@@ -481,13 +493,13 @@ p {
     max-height: 2rem;
   }
 
-  /* .user-section img {
+  .user-section img {
     max-width: auto;
     max-height: 70%;
     border-radius: 2rem;
     margin: 1rem;
     padding: 1rem;
-  } */
+  }
 
   .user-card {
     width: 20rem;
