@@ -6,6 +6,7 @@ export default function ReviewNav({ setSelectedCategory }) {
   const [categories, setCategories] = useState();
   const [isLoadingCats, setIsLoadingCats] = useState(true);
   const [sortOrder, setSortOrder] = useState('desc');
+  const [selectedOrder_by, setSelectedOrder_by] = useState({ ascClass: '', descClass: 'selected' });
 
   const { search } = useLocation();
   let addToSearch = '?';
@@ -16,8 +17,11 @@ export default function ReviewNav({ setSelectedCategory }) {
   const handleToggleOrder = (order) => {
     let newSearchStr = search;
     let oppOrder = '';
-    if (order === 'asc') oppOrder = 'desc';
-    if (order === 'desc') oppOrder = 'asc';
+    if (order === 'asc') {
+      oppOrder = 'desc';
+    } else if (order === 'desc') {
+      oppOrder = 'asc';
+    }
 
     if (search.endsWith(order)) {
       return newSearchStr;
@@ -63,8 +67,26 @@ export default function ReviewNav({ setSelectedCategory }) {
               </div>
               <div className="query-order">
                 <p>order</p>
-                <Link to={`/reviews${handleToggleOrder('asc')}`}>⬆️</Link>
-                <Link to={`/reviews${handleToggleOrder('desc')}`}>⬇️</Link>
+                <Link
+                  to={`/reviews${handleToggleOrder('asc')}`}
+                  className={`order_by${selectedOrder_by.ascClass}`}
+                  onClick={() => {
+                    setSortOrder('asc');
+                    setSelectedOrder_by({ ascClass: 'selected', descClass: '' });
+                  }}
+                >
+                  ⬆️
+                </Link>
+                <Link
+                  to={`/reviews${handleToggleOrder('desc')}`}
+                  className={`order_by${selectedOrder_by.descClass}`}
+                  onClick={() => {
+                    setSortOrder('desc');
+                    setSelectedOrder_by({ ascClass: '', descClass: 'selected' });
+                  }}
+                >
+                  ⬇️
+                </Link>
               </div>
               <legend>Sort by</legend>
             </fieldset>

@@ -396,6 +396,14 @@ p {
   align-items: center;
 }
 
+.order_byselected {
+  background-color: #ff7d00;
+}
+
+.order_byselected {
+  background-color: #78290f;
+}
+
 @media (min-width: 600px) {
   .App {
     display: grid;
