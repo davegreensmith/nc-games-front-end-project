@@ -410,12 +410,22 @@ p {
   background-color: #78290f;
 }
 
+.Deleted {
+  opacity: 0.7;
+  color: #001524;
+}
+
+.delete-success {
+  color: #ff7d00;
+}
+
 @media (min-width: 600px) {
   .App {
     display: grid;
     grid-template-areas:
       '. header header .'
-      '. nav main .';
+      '. nav main .'
+      '. footer footer .';
     grid-template-columns: 10% 25% auto 10%;
     grid-template-rows: auto auto;
   }
@@ -424,6 +434,10 @@ p {
     display: flex;
     justify-content: space-evenly;
     grid-area: header;
+  }
+
+  .footer {
+    grid-area: footer;
   }
 
   .main-grid {

@@ -8,11 +8,12 @@ import CommentCard from './CommentCard';
 import ReviewCard from './ReviewCard';
 import CommentPost from './CommentPost';
 import useGetCommentsByReviewId from '../hooks/useGetCommentsByReviewId';
+import BackToTopButton from './BackToTopButton';
 
 export default function CommentHolder() {
   const { review_id } = useParams();
 
-  const { allComments, setAllComments, isLoadingComments, error } = useGetCommentsByReviewId(review_id);
+  const { allComments, setAllComments, isLoadingComments, error, setError } = useGetCommentsByReviewId(review_id);
 
   const { currentReview } = useGetReview(review_id);
 
@@ -36,11 +37,12 @@ export default function CommentHolder() {
             </section>
             <ul>
               {allComments.map((comment) => {
-                return <CommentCard key={comment.comment_id} comment={comment} />;
+                return <CommentCard key={comment.comment_id} comment={comment} setError={setError} />;
               })}
             </ul>
             <section ref={commentForm} className="comment-form">
               <CommentPost allComments={allComments} setAllComments={setAllComments} />
+              {/* <BackToTopButton /> */}
             </section>
           </>
         )}
