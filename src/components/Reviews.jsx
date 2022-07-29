@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import ReviewNav from './ReviewNav';
+import ReviewQueries from './ReviewQueries';
 import ReviewHolder from './ReviewHolder';
 import ReviewFull from './ReviewFull';
 import { useParams } from 'react-router-dom';
@@ -18,7 +18,7 @@ export default function Reviews() {
         </>
       ) : (
         <>
-          <ReviewNav setSelectedCategory={setSelectedCategory} />
+          <ReviewQueries setSelectedCategory={setSelectedCategory} />
           <ReviewHolder selectedCategory={selectedCategory} />
         </>
       )}
