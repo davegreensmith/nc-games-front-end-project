@@ -30,11 +30,13 @@ export default function CommentHolder() {
         ) : (
           <>
             <h3>Review:</h3>
-            <ReviewCard review={currentReview} />
-            <section className="comment-sub-header">
-              <h4>Comments: ({allComments.length})</h4>
-              <button onClick={executeScroll}>Go to comment form</button>
-            </section>
+            <div className="comment-holder-review-card">
+              <ReviewCard review={currentReview} />
+              <section className="comment-sub-header">
+                <h4>Comments: ({allComments.length})</h4>
+                <button onClick={executeScroll}>Go to comment form</button>
+              </section>
+            </div>
             <ul>
               {allComments.map((comment) => {
                 return <CommentCard key={comment.comment_id} comment={comment} setError={setError} />;
