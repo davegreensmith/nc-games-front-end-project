@@ -8,6 +8,7 @@ import CommentCard from './CommentCard';
 import ReviewCard from './ReviewCard';
 import CommentPost from './CommentPost';
 import useGetCommentsByReviewId from '../hooks/useGetCommentsByReviewId';
+import BackToTopButton from './BackToTopButton';
 
 export default function CommentHolder() {
   const { review_id } = useParams();
@@ -41,6 +42,7 @@ export default function CommentHolder() {
             </ul>
             <section ref={commentForm} className="comment-form">
               <CommentPost allComments={allComments} setAllComments={setAllComments} />
+              {/* <BackToTopButton /> */}
             </section>
           </>
         )}

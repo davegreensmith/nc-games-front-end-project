@@ -12,6 +12,7 @@ import Users from './components/Users';
 import MyAccount from './components/MyAccount';
 import CommentHolder from './components/CommentHolder';
 import GotLost from './components/GotLost';
+import BackToTopButton from './components/BackToTopButton';
 
 function App() {
   const [error, setError] = useState(null);
@@ -38,6 +39,9 @@ function App() {
                 <Route path="/my_account" element={<MyAccount />}></Route>
                 <Route path="*" element={<GotLost />}></Route>
               </Routes>
+            </div>
+            <div className="footer">
+              <BackToTopButton />
             </div>
           </div>
         </BrowserRouter>

@@ -1,0 +1,33 @@
+.button {
+  background-color: #ff7d00;
+  padding: 0.5rem;
+}
+
+.section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background-color: #001524;
+}
+
+.section img {
+  max-height: 5rem;
+}
+
+@media (min-width: 600px) {
+  .App {
+    display: grid;
+    grid-template-areas:
+      '. header header .'
+      '. nav main .'
+      '. footer footer .';
+    grid-template-columns: 10% 25% auto 10%;
+    grid-template-rows: auto auto auto;
+  }
+
+  .section {
+    grid-area: footer;
+  }
+}
