@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom';
-import * as api from '../utils/api';
 import { formatDate } from '../utils/functions';
 
 export default function ReviewCard({ review }) {
   if (!review) {
     return <p>Loading...</p>;
   } else {
-    const { category, comment_count, created_at, designer, owner, review_body, review_img_url, title, votes, review_id } = review;
+    const { category, comment_count, created_at, designer, review_img_url, title, votes, review_id } = review;
 
     return (
       <article className="review-card">
-        <img src={review_img_url}></img>
+        <img src={review_img_url} alt="game"></img>
         <div id="review-card-preview">
           <h4>{title}</h4>
           <p>Date of Review: {formatDate(created_at)}</p>

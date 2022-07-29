@@ -52,3 +52,9 @@ export const postReview = (review_id, body) => {
     return { status };
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return usersApi.delete(`/comments/${comment_id}`).then(({ status }) => {
+    return { status };
+  });
+};
