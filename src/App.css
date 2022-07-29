@@ -359,6 +359,12 @@ p {
   font-weight: bold;
 }
 
+.query-linksselected {
+  color: #ff7d00;
+  background-color: #78290f;
+  padding: 0.25rem;
+}
+
 .query-order-radio {
   display: flex;
   flex-direction: column;

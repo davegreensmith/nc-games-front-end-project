@@ -7,6 +7,7 @@ export default function ReviewNav({ setSelectedCategory }) {
   const [isLoadingCats, setIsLoadingCats] = useState(true);
   const [sortOrder, setSortOrder] = useState('desc');
   const [selectedOrder_by, setSelectedOrder_by] = useState({ ascClass: '', descClass: 'selected' });
+  const [selectedSort_by, setSelectedSort_by] = useState({ date: '', comment_count: '', votes: '' });
 
   const { search } = useLocation();
   let addToSearch = '?';
@@ -55,13 +56,31 @@ export default function ReviewNav({ setSelectedCategory }) {
           <form className="query-form">
             <fieldset className="sort-by-form">
               <div className="query-menu">
-                <Link to={`/reviews${addToSearch}sort_by=created_at&order=${sortOrder}`} className="query-links">
+                <Link
+                  to={`/reviews${addToSearch}sort_by=created_at&order=${sortOrder}`}
+                  className={`query-links${selectedSort_by.date}`}
+                  onClick={() => {
+                    setSelectedSort_by({ date: 'selected', comment_count: '', votes: '' });
+                  }}
+                >
                   Date
                 </Link>
-                <Link to={`/reviews${addToSearch}sort_by=comment_count&order=${sortOrder}`} className="query-links">
+                <Link
+                  to={`/reviews${addToSearch}sort_by=comment_count&order=${sortOrder}`}
+                  className={`query-links${selectedSort_by.comment_count}`}
+                  onClick={() => {
+                    setSelectedSort_by({ date: '', comment_count: 'selected', votes: '' });
+                  }}
+                >
                   Comment_count
                 </Link>
-                <Link to={`/reviews${addToSearch}sort_by=votes&order=${sortOrder}`} className="query-links">
+                <Link
+                  to={`/reviews${addToSearch}sort_by=votes&order=${sortOrder}`}
+                  className={`query-links${selectedSort_by.votes}`}
+                  onClick={() => {
+                    setSelectedSort_by({ date: '', comment_count: '', votes: 'selected' });
+                  }}
+                >
                   Votes
                 </Link>
               </div>
